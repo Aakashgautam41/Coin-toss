@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Coin-Toss</title>
+</head>
+<style>
+    .main {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    body {
+        background-color: #34495e;
+        color: white;
+    }
+
+    button {
+        background-color: #e74c3c;
+        color: white;
+        border: none;
+        height: 50px;
+        width: 150px;
+        border-radius: 5px;
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 3px;
+        margin-left: -145px;
+        margin-bottom: -100px;
+        margin-top: 30px;
+    }
+
+    #result {
+        display: block;
+    }
+
+    img {
+        height: 200px;
+        margin-top: -300px;
+        margin-right: -160px;
+        border-radius: 150px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+</style>
+
+<body>
+    <div class="main">
+        <img src="Images/coin-heads.png" alt="" class="hidden" id="heads">
+        <img src="Images/coin-tails.jfif" alt="" class="hidden" id="tails">
+        <h1 id="result">HoLA!!!!!</h1>
+        <button onclick="toss()"> Flip</button>
+        <h1 id="count"></h1>
+    </div>
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        function toss() {
+            var a = Math.floor(Math.random(2) * 2);
+
+            if (a == 1) {
+                document.getElementById("result").innerHTML = ("Heads !!!!");
+                $("#heads").removeClass("hidden");
+                $("#tails").addClass("hidden");
+
+
+            } else {
+                document.getElementById("result").innerHTML = ("Tails !!!!!!");
+                $("#tails").removeClass("hidden");
+                $("#heads").addClass("hidden");
+
+            }
+
+            console.log(a);
+        }
+
+    </script>
+</body>
+
+</html>
