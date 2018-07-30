@@ -2,89 +2,52 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Coin-Toss</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<title>PassGen</title>
+	<link rel="stylesheet" href="passgen.css">
+
+	<style>
+
+	</style>
+	
+	<script>
+        var keylist = "abcdefghijklmnopqrstuvwxyz1234567890!@#$%&*"
+     
+        function generatepass(plength){
+            tmp = ""
+            for(i=0;i<plength;i++){
+                tmp+=keylist.charAt(Math.floor(Math.random()*keylist.length))
+            }
+            return tmp
+        }
+        function populateform(enterlength){
+            document.passGen.output.value = generatepass(enterlength)
+        }
+    
+    
+    </script>
+
 </head>
-<style>
-    .main {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    body {
-        background-color: #34495e;
-        color: white;
-    }
-
-    button {
-        background-color: #e74c3c;
-        color: white;
-        border: none;
-        height: 50px;
-        width: 150px;
-        border-radius: 5px;
-        font-size: 20px;
-        font-weight: bold;
-        letter-spacing: 3px;
-        margin-left: -145px;
-        margin-bottom: -100px;
-        margin-top: 30px;
-    }
-
-    #result {
-        display: block;
-    }
-
-    img {
-        height: 200px;
-        margin-top: -300px;
-        margin-right: -160px;
-        border-radius: 150px;
-    }
-
-    .hidden {
-        display: none;
-    }
-
-</style>
 
 <body>
-    <div class="main">
-        <img src="Images/coin-heads.png" alt="" class="hidden" id="heads">
-        <img src="Images/coin-tails.jfif" alt="" class="hidden" id="tails">
-        <h1 id="result">HoLA!!!!!</h1>
-        <button onclick="toss()"> Flip</button>
-        <h1 id="count"></h1>
-    </div>
 
+	<div class="container">
+	<form action="" name="passGen">
+	<input type="text" size="18" name="output" class="out"> <br>
+	<input type="button" value="Generate Password" onclick="populateform(this.form.length.value)" class="mybtn"><br>
+    <strong class="str">Password Length : </strong> <input type="text" name="length" size="3" value="6" class="inp">
+    </form>
+	</div>
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+	<script>
+	</script>
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>
-        function toss() {
-            var a = Math.floor(Math.random(2) * 2);
-
-            if (a == 1) {
-                document.getElementById("result").innerHTML = ("Heads !!!!");
-                $("#heads").removeClass("hidden");
-                $("#tails").addClass("hidden");
-
-
-            } else {
-                document.getElementById("result").innerHTML = ("Tails !!!!!!");
-                $("#tails").removeClass("hidden");
-                $("#heads").addClass("hidden");
-
-            }
-
-            console.log(a);
-        }
-
-    </script>
 </body>
 
 </html>
